@@ -2,7 +2,7 @@ const express = require('express');
 
 const router = express.Router();
 
-const isauth = require('../../middleware/admin-is-auth');
+//const isauth = require('../../middleware/admin-is-auth');
 const sponsorController = require('../../controllers/admin/sponsors');
 
 const multer = require('multer');
@@ -24,6 +24,6 @@ const fileFilter = (req, file, cb) => {
 
 var upload = multer({storage: fileStorage, fileFilter: fileFilter});
 
-router.post('/add-sponsor',isauth,upload.single('image'),sponsorController.addSponsors);
+router.post('/add-sponsor'/*,isauth*/,upload.single('image'),sponsorController.addSponsors);
 
 module.exports = router;

@@ -14,6 +14,8 @@ const youngLeadersRoutes = require('./routes/events/YoungLeaders/routes');
 const youngleaderadminRoutes = require('./routes/admin/youngLeaders');
 
 const sponsorAdminRoutes = require('./routes/admin/sponsors');
+//mycode
+const teamsRoutes = require('./routes/teams/teams')
 
 const app = express();
 
@@ -46,6 +48,9 @@ app.use('/events/youngleaders',youngLeadersRoutes);
 app.use('/admin-control/youngleader',youngleaderadminRoutes);
 app.use('/admin-control',sponsorAdminRoutes);
 
+//mycode
+app.use('/teams',teamsRoutes);
+
 app.use((error, req, res, next) => {
   console.log(error);
   const statusCode = error.statusCode || 500;
@@ -67,3 +72,6 @@ mongoose
     console.log('server started')
   })
   .catch(err => console.log(err));
+
+  //my code for crud 
+
